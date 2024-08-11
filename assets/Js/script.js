@@ -34,9 +34,6 @@ function confirm_Calculations() {
 
 
 
-confirmButton.addEventListener('click',() => {
-    confirm_Calculations()
-});
 confirmButton.addEventListener('touchstart',() => {
     confirm_Calculations()
 });
