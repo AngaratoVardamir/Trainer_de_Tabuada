@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: #260D34;
+}
+#Calculation{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+#Calculation strong{
+    font-size: 30px;
+    color: #D03791;
+    font-size: 80px;
+}
+#Calculation span input{
+    height: 40px;
+    width: 120px;
+    font-size: 23px;
+    border-radius: 10px;
+
+}
+#confirm{
+    background-color: #D03791;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+#Acertos{
+    background-color: #D03791;
+    color: #FFFFFF;
+}
