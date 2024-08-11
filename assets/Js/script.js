@@ -32,8 +32,30 @@ function confirm_Calculations() {
     Acertos.innerHTML = Pontos;
 }
 
+let isTouchEvent = false;
 
+// Função que será chamada ao clicar ou tocar no elemento
+function handleClick(event) {
+    // Se o evento foi acionado por um toque, marcar a variável
+    if (event.type === 'touchstart') {
+        isTouchEvent = true;
+    }
 
-confirmButton.addEventListener('touchstart',() => {
+    // Se o evento foi acionado por um clique após um toque, não fazer nada
+    if (event.type === 'click' && isTouchEvent) {
+        return;
+    }
+
+    //Função
     confirm_Calculations()
-});
+    // Resetar a variável após um curto período
+    setTimeout(() => {
+        isTouchEvent = false;
+    }, 300);
+}
+
+// Adiciona o evento de toque para dispositivos móveis
+confirmButton.addEventListener('touchstart', handleClick);
+
+// Adiciona o evento de clique para desktop
+confirmButton.addEventListener('click', handleClick);
