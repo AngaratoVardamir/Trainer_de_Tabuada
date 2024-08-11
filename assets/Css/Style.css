@@ -42,3 +42,23 @@ html, body{
     background-color: #D03791;
     color: #FFFFFF;
 }
+footer{
+    background-color: #D03791;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+}
+#Balão{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
