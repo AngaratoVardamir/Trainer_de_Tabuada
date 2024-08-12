@@ -328,13 +328,21 @@ function Calculations() {
 }
 function confirm_Calculations() {
     if (Resposta == response_student.value){
-        alert('Resposta correta!');
+        alert('Resposta correta!, Olha só, acertou! Quem diria, hein?');
         Calculations()
         Pontos += 1;
+        response_student.value = ("");
     }
     else{
-        Pontos = Pontos - Pontos;
-        alert('Resposta errada!');
+        if (Resposta == '0') {
+            Pontos = Pontos - Pontos;
+            alert(`Resposta errada!, Sério? Você tropeçou na tabuada do 0? Isso é tipo esquecer como respirar! Deixa eu te dar uma dica: qualquer número vezes 0 é... tcharam... 0! Até um taco de beisebol sabe disso. Tá difícil aí? Quer que eu chame o Jardim de Infância pra dar uma mãozinha? Acho que eles podem te ajudar com essa matemática de nível pré-alguma-coisa!`)
+        }
+        else{
+            Pontos = Pontos - Pontos;
+            alert(`Resposta errada!, ${Numero_um}x${Numero_dois} e... você errou?! Sério?! Isso é matemática de contagem de dedos, meu chapa! Até um abacaxi sabe que é ${Resposta}! Quer que eu desenhe ou vai continuar achando que ${Numero_um}x${Numero_dois} é algum código secreto do universo? Meu Deus, até meu cachorro conseguiria essa!`);
+            response_student.value = ("");
+        }
     }
     Acertos.innerHTML = Pontos;
     Falas()
