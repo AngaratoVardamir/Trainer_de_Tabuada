@@ -1,0 +1,11 @@
+#LevelIcon:hover{
+    background-color: var(--cor-green);
+    color: var(--cor-yellow);
+    border-color: var(--cor-yellow);
+}
+.Cards:hover{
+    background-color: var(--cor-green);
+    color: var(--cor-yellow);
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 10px var(--cor-black-10);
+}

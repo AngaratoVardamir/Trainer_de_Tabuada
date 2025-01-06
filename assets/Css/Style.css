@@ -1,84 +1,117 @@
+/* Estilo geral */
 *{
     margin: 0;
     padding: 0;
 }
+:root{
+    /* Tons de Preto */
+    --cor-black-10: #000000;
+    --cor-black-20: #121214;
+    --cor-black-30: #17171a;
+    --cor-black-40: #202024;
+    --cor-black-50: #252529;
+    --cor-black-60: #afabb6;
+    --cor-black-70: #ffffff;
+    /* Paleta de Cores */
+    --cor-blue: #005f99;
+    --cor-green: #00704a;
+    --cor-yellow: #ffcc00;
+}
+/* Estilo geral do Corpo e Alma do Site; html e body */
 html, body{
     width: 100%;
     height: 100%;
-    background-color: #260D34;
+    background-color: var(--cor-black-10);
 }
-#Calculation{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 200px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
+body{
+    display: flex;
+    flex-direction: column;
+}
+/* Estilo da Cabeça */
+header{
+    background-color: var(--cor-blue);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+/* Estilo do Cérebro */
+#Title{
+    flex: auto;
+    font-size: 2.5em;
+    color: var(--cor-black-70);
     text-align: center;
-    display: grid;
-    place-items: center;
-    box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#Calculation strong{
-    font-size: 30px;
-    color: #D03791;
-    font-size: 80px;
-}
-#Calculation span input{
-    height: 40px;
-    width: 120px;
-    font-size: 23px;
-    border-radius: 10px;
-
-}
-#confirm{
-    background-color: #D03791;
-    color: #FFFFFF;
+#LevelIcon{
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor-black-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--cor-black-70);
+    margin: 0px 10px;
     cursor: pointer;
+    color: var(--cor-black-70);
+    transition: 0.8s ease;
 }
-#Acertos{
-    background-color: #D03791;
-    color: #FFFFFF;
+/* Estilo do Corpo das Cartas de Interação */
+main{
+    background-color: var(--cor-black-20);
+    flex: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-header {
-    background-color: #D03791;
-    display: grid;
-    place-items: center;
-    color: #FFFFFF;
+/* Estilo das Cartas */
+.Cards{
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+    background-color: var(--cor-black-30);
+    border: 1px solid var(--cor-black-70);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.8s ease;
+    color: var(--cor-black-70);
 }
-#Balão{
-    position: absolute;
-    top: 83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 140px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    display: grid;
-    place-items: center;
-}
-#Perfil{
-    position: absolute;
-    top: 17%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    display: grid;
-    place-items: center;
-    border: 1px solid #D03791;
-}
-#Perfil img{
+/* Estilo Frente das Cartas */
+.front{
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+}
+/* Estilo Atrás das Cartas */
+.Back{
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+/* Estilo do Pé */
+footer{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Estilo da Unha */
+footer > a{
+    text-decoration: none;
+    color: var(--cor-black-70);
+    font-size: 1.2em;
 }
