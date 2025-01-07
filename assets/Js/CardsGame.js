@@ -34,6 +34,42 @@ CreatingLetters()
 
 const Cartas = [...document.querySelectorAll('.Cards')];
 const Game = document.getElementById('Game');
+// Resultado da conta no botão
+const ButtonNumber = [...document.getElementsByClassName("number")];
+
+function ResultadoButton(Res) {
+    // Criando os resultados Falsos
+    ButtonNumber.map((Button) => {
+        let ResRandom = Math.floor(Math.random()*(Res+ButtonNumber.length));
+        Button.innerHTML = (`${ResRandom+1}`);
+    })
+
+
+    // escolhendo um botão aleatorio para ganhar o resultado verdadeiro
+    const ButtonRandom = Math.floor(Math.random()*ButtonNumber.length);
+
+    console.log(Res);
+    ButtonNumber[ButtonRandom].innerHTML = (`${Res}`);
+}
+// Criando as contas para o jogandor
+const Conta = document.getElementById("Account");
+
+function ContaNumber(Simbol, SimbolReal) {
+    function NumeroRandom() {
+        return Math.floor(Math.random()*9);
+    }
+
+    const Numero1 = NumeroRandom();
+    const Numero2 = NumeroRandom();
+
+    const ContaAll = (`${Numero1} ${Simbol} ${Numero2}`);
+    const ContaAllReal = (`${Numero1} ${SimbolReal} ${Numero2}`);
+
+    const ResultadoConta = eval(`${ContaAll}`);
+    console.log(`${ContaAll} = ${ResultadoConta}`);
+    ResultadoButton(ResultadoConta);
+    Conta.innerHTML = (`${ContaAllReal}`);
+}
 
 // Abrindo Janela e fechando as Cartas
 function OpeningWindow_ClosingCards() {
@@ -51,14 +87,18 @@ Cartas.map((Card) => {
         switch (Card.classList[1]) {
             case "Addition":
                 OpeningWindow_ClosingCards()
+                ContaNumber("+","+")
                 break;
             case "Subtraction":
                 OpeningWindow_ClosingCards()
+                ContaNumber("-","-")
                 break;
             case "Division":
                 OpeningWindow_ClosingCards()
+                ContaNumber("/","÷")
                 break;
             case "Multiplication":
+                ContaNumber("*","x")
                 OpeningWindow_ClosingCards()
                 break;
 
