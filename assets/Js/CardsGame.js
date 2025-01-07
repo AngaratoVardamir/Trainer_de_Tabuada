@@ -56,8 +56,11 @@ function TotalLevelSystem() {
         level++;
         console.log(`Level Up! Nível ${level}`);
         TotalLevelXp = (TotalLevelXp + 1000);
+        Percentage = 0;
+        CURRENTXP = 0;
+        VisionLevel()
     }
-    if (CURRENTXP == TotalLevelXp) {
+    if (CURRENTXP > TotalLevelXp) {
         LevelUp()
     }
 }
@@ -78,6 +81,7 @@ function ResultadoButton(Res, XPGained) {
     // Calculando Percentagem de XP
     XPPercentage.style.width = (`${Percentage}%`);
     // Abrindo Janela Moldavel
+    TotalLevelSystem()
     ButtonNumber.map((Button)=>{
         Button.addEventListener("click", ()=>{
             if (Button.innerHTML== Res) {
@@ -160,10 +164,12 @@ function ClosingCards_OpeningWindow() {
 
 ButtonMenu.addEventListener("click",()=>{
     ClosingCards_OpeningWindow()
-    TotalLevelSystem()
 })
 
-// Mostrando o Level do Jogador na tela
-LogoLevel.innerText = (`Lv ${level}`);
-Nowlevel.innerText = (`Lv ${level}`);
-Afterlevel.innerText = (`Lv ${level+1}`);
+function VisionLevel() {
+    // Mostrando o Level do Jogador na tela
+    LogoLevel.innerText = (`Lv ${level}`);
+    Nowlevel.innerText = (`Lv ${level}`);
+    Afterlevel.innerText = (`Lv ${level+1}`);
+}
+VisionLevel()
