@@ -92,7 +92,7 @@ function ResultadoButton(Res, XPGained) {
             }
             else {
                 MoldableWindow.style.display = 'flex';
-                XPGainedResult.innerHTML = (`${XPGained}xp Perdido`);
+                XPGainedResult.innerHTML = (``);
             }
         })
     })
