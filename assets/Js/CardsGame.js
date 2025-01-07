@@ -1,5 +1,10 @@
 "use strict";
 
+// XP Atual do Jogandor
+let level = 1;
+var CURRENTXP = 0;
+let TotalLevelXp = 1000;
+let Percentage = 0;
 // Variables
 const Main = document.querySelector('main');
 const ButtonMenu = document.getElementById('ButtonMenu');
@@ -8,9 +13,13 @@ const Conta = document.getElementById("Account");
 const Game = document.getElementById('Game');
 const ButtonNumber = [...document.getElementsByClassName("number")];
 const XPGainedResult = document.getElementById("XPGained");
+//Level sistema
+const LogoLevel = document.getElementById('LevelIcon');
+const Nowlevel = document.getElementById('Currentlevel');
+const Afterlevel = document.getElementById('NextLevel');
+const XPPercentage = document.getElementById('XPAll');
 
 // Fazendo as cartas com Js
-
 function CreatingLetters() {
     const ClassCards = [ "Addition", "Subtraction", "Division", "Multiplication" ]; //Classe das Cartas
     const ClassIcones = ["fa-solid fa-plus", "fa-solid fa-minus", "fa-solid fa-divide", "fa-solid fa-xmark"];
@@ -40,6 +49,19 @@ function CreatingLetters() {
 }
 CreatingLetters()
 const Cartas = [...document.querySelectorAll('.Cards')];
+// Sistema de Niveis para subir de nivel
+
+function TotalLevelSystem() {
+    function LevelUp() {
+        level++;
+        console.log(`Level Up! Nível ${level}`);
+        TotalLevelXp = (TotalLevelXp + 1000);
+    }
+    if (CURRENTXP == TotalLevelXp) {
+        LevelUp()
+    }
+}
+
 // Resultado da conta no botão
 function ResultadoButton(Res, XPGained) {
     // Criando os resultados Falsos
@@ -53,13 +75,16 @@ function ResultadoButton(Res, XPGained) {
     const ButtonRandom = Math.floor(Math.random()*ButtonNumber.length);
 
     ButtonNumber[ButtonRandom].innerHTML = (`${Res}`);
-
+    // Calculando Percentagem de XP
+    XPPercentage.style.width = (`${Percentage}%`);
     // Abrindo Janela Moldavel
     ButtonNumber.map((Button)=>{
         Button.addEventListener("click", ()=>{
             if (Button.innerHTML== Res) {
                 MoldableWindow.style.display = 'flex';
                 XPGainedResult.innerHTML = (`${XPGained}xp Ganho`);
+                CURRENTXP = (CURRENTXP + XPGained);
+                Percentage = ((CURRENTXP/TotalLevelXp)*100);
             }
             else {
                 MoldableWindow.style.display = 'flex';
@@ -89,6 +114,7 @@ function ContaNumber(Simbol, SimbolReal, XPG) {
 // Abrindo Janela e fechando as Cartas
 function OpeningWindow_ClosingCards() {
     Game.style.display = 'flex';
+    
     Cartas.map((CartaX) =>{
         CartaX.style.display = 'none';
     })
@@ -134,4 +160,10 @@ function ClosingCards_OpeningWindow() {
 
 ButtonMenu.addEventListener("click",()=>{
     ClosingCards_OpeningWindow()
+    TotalLevelSystem()
 })
+
+// Mostrando o Level do Jogador na tela
+LogoLevel.innerText = (`Lv ${level}`);
+Nowlevel.innerText = (`Lv ${level}`);
+Afterlevel.innerText = (`Lv ${level+1}`);
