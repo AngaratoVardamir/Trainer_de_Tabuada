@@ -1,5 +1,13 @@
 "use strict";
+
+// Variables
 const Main = document.querySelector('main');
+const ButtonMenu = document.getElementById('ButtonMenu');
+const MoldableWindow = document.getElementById('MoldableWindow');
+const Conta = document.getElementById("Account");
+const Game = document.getElementById('Game');
+const ButtonNumber = [...document.getElementsByClassName("number")];
+const XPGainedResult = document.getElementById("XPGained");
 
 // Fazendo as cartas com Js
 
@@ -31,13 +39,9 @@ function CreatingLetters() {
     }
 }
 CreatingLetters()
-
 const Cartas = [...document.querySelectorAll('.Cards')];
-const Game = document.getElementById('Game');
 // Resultado da conta no botão
-const ButtonNumber = [...document.getElementsByClassName("number")];
-
-function ResultadoButton(Res) {
+function ResultadoButton(Res, XPGained) {
     // Criando os resultados Falsos
     ButtonNumber.map((Button) => {
         let ResRandom = Math.floor(Math.random()*(Res+ButtonNumber.length));
@@ -48,13 +52,25 @@ function ResultadoButton(Res) {
     // escolhendo um botão aleatorio para ganhar o resultado verdadeiro
     const ButtonRandom = Math.floor(Math.random()*ButtonNumber.length);
 
-    console.log(Res);
     ButtonNumber[ButtonRandom].innerHTML = (`${Res}`);
+
+    // Abrindo Janela Moldavel
+    ButtonNumber.map((Button)=>{
+        Button.addEventListener("click", ()=>{
+            if (Button.innerHTML== Res) {
+                MoldableWindow.style.display = 'flex';
+                XPGainedResult.innerHTML = (`${XPGained}xp Ganho`);
+            }
+            else {
+                MoldableWindow.style.display = 'flex';
+                XPGainedResult.innerHTML = (`${XPGained}xp Perdido`);
+            }
+        })
+    })
 }
 // Criando as contas para o jogandor
-const Conta = document.getElementById("Account");
 
-function ContaNumber(Simbol, SimbolReal) {
+function ContaNumber(Simbol, SimbolReal, XPG) {
     function NumeroRandom() {
         return Math.floor(Math.random()*9);
     }
@@ -66,8 +82,7 @@ function ContaNumber(Simbol, SimbolReal) {
     const ContaAllReal = (`${Numero1} ${SimbolReal} ${Numero2}`);
 
     const ResultadoConta = eval(`${ContaAll}`);
-    console.log(`${ContaAll} = ${ResultadoConta}`);
-    ResultadoButton(ResultadoConta);
+    ResultadoButton(ResultadoConta, XPG);
     Conta.innerHTML = (`${ContaAllReal}`);
 }
 
@@ -83,22 +98,21 @@ function OpeningWindow_ClosingCards() {
 // Mundaça de Pagina
 Cartas.map((Card) => {
     Card.addEventListener("click", () =>{
-        console.log(Card.classList[1])
         switch (Card.classList[1]) {
             case "Addition":
                 OpeningWindow_ClosingCards()
-                ContaNumber("+","+")
+                ContaNumber("+","+", 100)
                 break;
             case "Subtraction":
                 OpeningWindow_ClosingCards()
-                ContaNumber("-","-")
+                ContaNumber("-","-", 150)
                 break;
             case "Division":
                 OpeningWindow_ClosingCards()
-                ContaNumber("/","÷")
+                ContaNumber("/","÷", 300)
                 break;
             case "Multiplication":
-                ContaNumber("*","x")
+                ContaNumber("*","x", 250)
                 OpeningWindow_ClosingCards()
                 break;
 
@@ -107,4 +121,17 @@ Cartas.map((Card) => {
                 break;
         }
     })
+})
+
+// Abrindo Cartas e fechando as Janelas Moldal e Game
+function ClosingCards_OpeningWindow() {
+    Game.style.display = 'none';
+    MoldableWindow.style.display = 'none';
+    Cartas.map((CartaX) =>{
+        CartaX.style.display = 'flex';
+    })
+}
+
+ButtonMenu.addEventListener("click",()=>{
+    ClosingCards_OpeningWindow()
 })

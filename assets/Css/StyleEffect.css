@@ -16,3 +16,8 @@
     color: var(--cor-black-30);
     border-color: var(--cor-black-50);
 }
+#ButtonMenu:hover{
+    background-color: var(--cor-blue);
+    color: var(--cor-black-10);
+    border-color: var(--cor-black-10);
+}
