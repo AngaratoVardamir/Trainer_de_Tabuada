@@ -2,7 +2,7 @@
 //Som
 let ativadorSom = 0;
 // XP Atual do Jogandor
-let level = 1;
+let level = 49;
 var CURRENTXP = 0;
 let TotalLevelXp = 1000;
 let Percentage = 0;
@@ -175,10 +175,16 @@ function ClosingCards_OpeningWindow() {
         CartaX.style.display = 'flex';
     })
 }
+// Vendo se o Botão Menu foi aberto nas skills
+let SkillsMenu = false;
 
 ButtonMenu.addEventListener("click",()=>{
     ClosingCards_OpeningWindow()
     Sonsclick();
+    if (SkillsMenu == true) {
+        SkillsClose()
+        SkillsMenu = false;
+    }
 })
 
 function VisionLevel() {
@@ -202,3 +208,54 @@ function SonsBackground() {
     SomBack.play();
     SomBack.volume = .4;
 }
+// Skills Icones
+const JanelaSkills = document.getElementById("WindowXP");
+const Locked = [...document.getElementsByClassName("Locked")];
+const SkillsWindow = document.getElementById("Skills");
+function SkillsOpen() {
+    MoldableWindow.style.display = 'flex';
+    JanelaSkills.style.height = "350px";
+    XPGainedResult.innerHTML = "Skills";
+    SkillsWindow.style.display = "flex";
+    XPGainedResult.style.fontSize = "2em";
+
+    // Botão Menu das Skills
+    SkillsMenu = true;
+}
+function SkillsClose() {
+    MoldableWindow.style.display = 'none';
+    JanelaSkills.style.height = "210px";
+    XPGainedResult.innerHTML = "";
+    SkillsWindow.style.display = "none";
+    XPGainedResult.style.fontSize = "1.5em";
+}
+// Ligandor de Habilidades
+function AddSkill(idnum, icon) {
+    Locked[idnum].classList.add("skill");
+    Locked[idnum].classList.remove("Locked");
+    const skillicons = [...document.getElementsByClassName("skill")];
+    skillicons[idnum].innerHTML = (icon);
+}
+// Habilidades Ativas
+function SkillsActive() {
+    switch (level) {
+        case 10:
+            AddSkill(0, (`<i class="fa-solid fa-dice-d20"></i>`))
+            break;
+        case 50:
+            AddSkill(1, (`<i class="fa-solid fa-eye"></i>`))
+            break;
+        case 90:
+            AddSkill(2, (`<i class="fa-solid fa-4"></i>`))
+            break;
+        default:
+            console.log("Sem Habilidade para Ativar");
+            break;
+    }
+}
+console.log(Locked[0]);
+LogoLevel.addEventListener("click",()=>{
+    Sonsclick()
+    SkillsOpen();
+    SkillsActive()
+})
