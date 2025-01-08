@@ -11,4 +11,7 @@
         height: 120px;
         margin: 10px;
     }
+    #Title{
+        font-size: 2em;
+    }
 }

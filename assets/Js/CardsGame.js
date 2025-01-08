@@ -1,5 +1,6 @@
 "use strict";
-
+//Som
+let ativadorSom = 0;
 // XP Atual do Jogandor
 let level = 1;
 var CURRENTXP = 0;
@@ -69,8 +70,8 @@ function TotalLevelSystem() {
 function ResultadoButton(Res, XPGained) {
     // Criando os resultados Falsos
     ButtonNumber.map((Button) => {
-        let ResRandom = Math.floor(Math.random()*(Res+ButtonNumber.length));
-        Button.innerHTML = (`${ResRandom+1}`);
+        let ResRandom = Math.floor(Math.random()*(99));
+        Button.innerHTML = (`${ResRandom}`);
     })
 
 
@@ -84,6 +85,7 @@ function ResultadoButton(Res, XPGained) {
     TotalLevelSystem()
     ButtonNumber.map((Button)=>{
         Button.addEventListener("click", ()=>{
+            Sonsclick();
             if (Button.innerHTML== Res) {
                 MoldableWindow.style.display = 'flex';
                 XPGainedResult.innerHTML = (`${XPGained}xp Ganho`);
@@ -101,7 +103,12 @@ function ResultadoButton(Res, XPGained) {
 
 function ContaNumber(Simbol, SimbolReal, XPG) {
     function NumeroRandom() {
-        return Math.floor(Math.random()*9);
+        // Sistema de dificuldade aumentado
+        let digitosTotais = 9;
+        if (level == 50) {
+            digitosTotais = 99;
+        }
+        return Math.floor(Math.random()*digitosTotais);
     }
 
     const Numero1 = NumeroRandom();
@@ -111,7 +118,7 @@ function ContaNumber(Simbol, SimbolReal, XPG) {
     const ContaAllReal = (`${Numero1} ${SimbolReal} ${Numero2}`);
 
     const ResultadoConta = eval(`${ContaAll}`);
-    ResultadoButton(ResultadoConta, XPG);
+    ResultadoButton(parseFloat(ResultadoConta).toFixed(0), XPG);
     Conta.innerHTML = (`${ContaAllReal}`);
 }
 
@@ -128,6 +135,13 @@ function OpeningWindow_ClosingCards() {
 // Mundaça de Pagina
 Cartas.map((Card) => {
     Card.addEventListener("click", () =>{
+        Sonsclick();
+        // Ativado som de Fundo
+        ativadorSom++;
+        if (ativadorSom == 1) {
+            SonsBackground();
+        }
+        // Manipulação das cartas de escolha
         switch (Card.classList[1]) {
             case "Addition":
                 OpeningWindow_ClosingCards()
@@ -164,6 +178,7 @@ function ClosingCards_OpeningWindow() {
 
 ButtonMenu.addEventListener("click",()=>{
     ClosingCards_OpeningWindow()
+    Sonsclick();
 })
 
 function VisionLevel() {
@@ -173,3 +188,17 @@ function VisionLevel() {
     Afterlevel.innerText = (`Lv ${level+1}`);
 }
 VisionLevel()
+
+// Sons
+const Som = new Audio();
+const SomBack = new Audio();
+function Sonsclick() {
+    Som.src = ('../../assets/Audio/clicksoundeffect.mp3');
+    Som.play();
+}
+function SonsBackground() {
+    SomBack.src = ('../../assets/Audio/background.mp3');
+    SomBack.loop = true;
+    SomBack.play();
+    SomBack.volume = .4;
+}
