@@ -2,7 +2,7 @@
 //Som
 let ativadorSom = 0;
 // XP Atual do Jogandor
-let level = 49;
+let level = 1;
 var CURRENTXP = 0;
 let TotalLevelXp = 1000;
 let Percentage = 0;
@@ -67,6 +67,7 @@ function TotalLevelSystem() {
 }
 
 // Resultado da conta no botão
+let botãoSelector = [];
 function ResultadoButton(Res, XPGained) {
     // Criando os resultados Falsos
     ButtonNumber.map((Button) => {
@@ -84,17 +85,18 @@ function ResultadoButton(Res, XPGained) {
     // Abrindo Janela Moldavel
     TotalLevelSystem()
     ButtonNumber.map((Button)=>{
-        Button.addEventListener("click", ()=>{
+        Button.addEventListener("click", (el)=>{
             Sonsclick();
             if (Button.innerHTML== Res) {
                 MoldableWindow.style.display = 'flex';
                 XPGainedResult.innerHTML = (`${XPGained}xp Ganho`);
                 CURRENTXP = (CURRENTXP + XPGained);
                 Percentage = ((CURRENTXP/TotalLevelXp)*100);
+                botãoSelector[0].style.display = 'flex';
             }
             else {
                 MoldableWindow.style.display = 'flex';
-                XPGainedResult.innerHTML = (``);
+                XPGainedResult.innerHTML = (`Você Errou!`);
             }
         })
     })
@@ -135,6 +137,7 @@ function OpeningWindow_ClosingCards() {
 // Mundaça de Pagina
 Cartas.map((Card) => {
     Card.addEventListener("click", () =>{
+        // som de clique
         Sonsclick();
         // Ativado som de Fundo
         ativadorSom++;
@@ -181,6 +184,9 @@ let SkillsMenu = false;
 ButtonMenu.addEventListener("click",()=>{
     ClosingCards_OpeningWindow()
     Sonsclick();
+    ButtonNumber.map((e)=>{
+        e.style.display = 'flex';
+    })
     if (SkillsMenu == true) {
         SkillsClose()
         SkillsMenu = false;
@@ -238,22 +244,16 @@ function AddSkill(idnum, icon) {
 }
 // Habilidades Ativas
 function SkillsActive() {
-    switch (level) {
-        case 10:
-            AddSkill(0, (`<i class="fa-solid fa-dice-d20"></i>`))
-            break;
-        case 50:
-            AddSkill(1, (`<i class="fa-solid fa-eye"></i>`))
-            break;
-        case 90:
-            AddSkill(2, (`<i class="fa-solid fa-4"></i>`))
-            break;
-        default:
-            console.log("Sem Habilidade para Ativar");
-            break;
+    if (level >= 10){
+        AddSkill(0, (`<i class="fa-solid fa-dice-d20"></i>`))
+    }
+    if (level >= 50){
+        AddSkill(1, (`<i class="fa-solid fa-eye"></i>`))
+    } 
+    if (level >= 90){
+        AddSkill(2, (`<i class="fa-solid fa-4"></i>`))
     }
 }
-console.log(Locked[0]);
 LogoLevel.addEventListener("click",()=>{
     Sonsclick()
     SkillsOpen();
