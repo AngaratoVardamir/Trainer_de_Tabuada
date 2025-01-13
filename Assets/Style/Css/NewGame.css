@@ -13,6 +13,21 @@
     --cor-black-60: #afabb6;
     --cor-black-70: #ffffff;
     /* Paleta de Cores */
+    --cor-Neon-10: #051F39;
+    --cor-Neon-20: #4A2480;
+    --cor-Neon-30: #C53A9D;
+    --cor-Neon-40: #FF8E80;
+}
+:root{
+    /* Tons de Preto */
+    --cor-black-10: #000000;
+    --cor-black-20: #121214;
+    --cor-black-30: #17171a;
+    --cor-black-40: #202024;
+    --cor-black-50: #252529;
+    --cor-black-60: #afabb6;
+    --cor-black-70: #ffffff;
+    /* Paleta de Cores */
     --cor-blue: #005f99;
     --cor-green: #00704a;
     --cor-yellow: #ffcc00;
@@ -29,7 +44,7 @@ body{
 }
 /* Estilo da Cabeça */
 header{
-    background-color: var(--cor-blue);
+    background-color: var(--cor-Neon-20);
     height: 70px;
     display: flex;
     align-items: center;
@@ -60,7 +75,7 @@ header{
 }
 /* Estilo do Corpo das Cartas de Interação */
 main{
-    background-color: var(--cor-black-20);
+    background-color: var(--cor-Neon-10);
     flex: auto;
     display: flex;
     justify-content: space-around;
@@ -122,7 +137,7 @@ main{
 #Account{
     margin-left: 10px;
     background-color: transparent;
-    color: var(--cor-blue);
+    color: var(--cor-Neon-30);
 }
 #ListofNumbers{
     flex: auto;
@@ -146,7 +161,7 @@ main{
     justify-content: center;
     align-items: center;
     font-size: 3em;
-    background-color: var(--cor-green);
+    background-color: var(--cor-Neon-20);
     border: 1px solid var(--cor-black-70);
     color: var(--cor-black-70);
     margin: 6px;
@@ -267,7 +282,7 @@ footer > a{
     justify-content: center;
 }
 #ButtonMenu{
-    background-color: var(--cor-green);
+    background-color: var(--cor-Neon-20);
     border: 1px solid var(--cor-black-70);
     font-size: 1.5em;
     border-radius: 10px;

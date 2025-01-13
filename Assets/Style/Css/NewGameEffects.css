@@ -1,23 +1,21 @@
 #LevelIcon:hover{
-    background-color: var(--cor-green);
-    color: var(--cor-yellow);
-    border-color: var(--cor-yellow);
+    background-color: var(--cor-Neon-30);
 }
 .Cards:hover{
-    background-color: var(--cor-green);
-    color: var(--cor-yellow);
+    background-color: var(--cor-Neon-20);
+    color: var(--cor-Neon-40);
     transform: translateY(-10px);
     box-shadow: 0px 10px 10px var(--cor-black-10);
 }
 .number:hover{
     transform: translateY(-15px);
     box-shadow: 0px 15px 10px var(--cor-black-10);
-    background-color: var(--cor-yellow);
+    background-color: var(--cor-Neon-30);
     color: var(--cor-black-30);
     border-color: var(--cor-black-50);
 }
 #ButtonMenu:hover{
-    background-color: var(--cor-blue);
+    background-color: var(--cor-Neon-30);
     color: var(--cor-black-10);
     border-color: var(--cor-black-10);
 }

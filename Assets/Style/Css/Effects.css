@@ -1,0 +1,8 @@
+#Menu > a:hover{
+    color: var(--cor-black-10);
+}
+.button:hover > .Cicle{
+    width: 200px;
+    height: 200px;
+    background-color: var(--cor-black-70);
+}

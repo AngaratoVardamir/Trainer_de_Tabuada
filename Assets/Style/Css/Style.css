@@ -1,0 +1,139 @@
+/* Estilo geral */
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    /* Tons de Preto */
+    --cor-black-10: #000000;
+    --cor-black-20: #121214;
+    --cor-black-30: #17171a;
+    --cor-black-40: #202024;
+    --cor-black-50: #252529;
+    --cor-black-60: #afabb6;
+    --cor-black-70: #ffffff;
+    /* Paleta de Cores */
+    --cor-Neon-10: #051F39;
+    --cor-Neon-20: #4A2480;
+    --cor-Neon-30: #C53A9D;
+    --cor-Neon-40: #FF8E80;
+}
+/* Estilo geral do Corpo e Alma do Site; html e body */
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+/* Menu estilo Geral */
+#MenuBackground{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+#Title-Menu{
+    height: 100px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+    font-style: italic;
+    color: var(--cor-Neon-30);
+    -webkit-text-stroke: .5px var(--cor-black-70);
+}
+#Menu{
+    width: 280px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--cor-black-70);
+    box-shadow: 0px 0px 10px var(--cor-Neon-30);
+    backdrop-filter: blur(2px);
+    background-color: #00000079;
+    border-radius: 10px;
+}
+#Menu > .button{
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0px;
+    width: 170px;
+    height: 40px;
+    background-color: #ffffff2b;
+    border: 1px solid var(--cor-Neon-20);
+    color: var(--cor-black-70);
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px var(--cor-black-20);
+    backdrop-filter: blur(2px);
+    text-shadow: 0px 0px 6px var(--cor-Neon-30);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 1s ease-in-out;
+}
+.Cicle{
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 100%;
+    position: absolute;
+    z-index: -1;
+    transition: 1s ease-in-out;
+}
+/*Área de Fundo Animado (#RainZone)*/
+#RainZone {
+    position: fixed;
+    background-color: var(--cor-Neon-10);
+    background-image: radial-gradient( var(--cor-Neon-10) 30%, var(--cor-black-20));
+    z-index: 0; /* Fica abaixo de outros elementos */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    top: 0;
+    left: 0;
+}
+/*Fundo fixo com animação de gotas de chuva.*/
+
+/*Animação de Chuva*/
+@keyframes RainAnimation {
+    0% {
+        bottom: 0; /* sobe pela tela inteira */
+    }
+    100% {
+        bottom: 100%; /* Começa fora da tela */
+    }
+}
+
+/*Gotas de Chuva*/
+.Rain {
+    width: 0px;
+    height: 0px;
+    background-color: var(--cor-black-70);
+    border-radius: 50%;
+    position: absolute;
+    animation-name: RainAnimation;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    bottom: 0;
+}
+/*Cada gota é um pequeno elemento animado com movimento linear infinito.*/

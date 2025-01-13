@@ -271,16 +271,17 @@ const SomBack = new Audio(); // Som de fundo (ainda não utilizado na função)
 // Função para tocar o som de clique
 function Sonsclick() {
     // Define o caminho do arquivo de áudio para o som de clique
-    Som.src = '../../assets/Audio/clicksoundeffect.mp3';
+    Som.src = '../Style/Audio/clicksoundeffect.mp3';
     
     // Reproduz o som de clique
     Som.play();
 }
 
 // Função para tocar o som de fundo
+
 function SonsBackground() {
     // Define o caminho do arquivo de áudio para o som de fundo
-    SomBack.src = '../../assets/Audio/background.mp3';
+    SomBack.src = '../Style/Audio/background.mp3';
     
     // Define o som de fundo para ser repetido em loop
     SomBack.loop = true;
