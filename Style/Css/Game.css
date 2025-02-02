@@ -1,0 +1,224 @@
+:root {
+    --color-dark: #2C2C2C;      /* Cor escura */
+    --color-accent: #EE7828;    /* Cor de destaque */
+    --color-neutral: #C5BAAA;   /* Cor neutra */
+    --color-secondary: #806D61; /* Cor secundária */
+
+    --margem: 30px;
+    --SizeB_function: 120px;
+    --SizeIcone: 2.5em;
+    --SizeHeader: 80px;
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url('../Fonts/Poppins/Poppins-Regular.ttf');
+}                                                
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark);
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+#Time{
+    background-color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+}
+#Time > em{
+    font-size: 1.5em;
+    color: var(--color-neutral);
+}
+#Range{
+    width: 80%;
+    background-color: var(--color-neutral);
+    height: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+#RangeInside{
+    width: 30%;
+    height: 100%;
+    background-color: var(--color-accent);
+    border-radius: 10px;
+    display: block;
+}
+#screen{
+    color: var(--color-neutral);
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2em;
+}
+#choices{
+    position: relative;
+    background-color: var(--color-secondary);
+    margin-top: 10px;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#choices > span{
+    display: flex;
+    flex-direction: column;
+}
+.touch{
+    background-color: var(--color-neutral);
+    color: var(--color-dark);
+    width: 120px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+/* Janela Moldável */
+#MoldableWindow{
+    position: absolute;
+    top: 0%;
+    width:  100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.578);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-neutral);
+}
+#WindowXP{
+    width: 400px;
+    height: 210px;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-neutral);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+#Level{
+    width: 100%;
+    height: 50px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+@keyframes liquidInvisivel{
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+#XP{
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-accent);
+
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    
+}
+#XPAll{
+    position: absolute;
+    background-color: var(--color-secondary);
+    width: 200px;
+    height: 200px;
+    bottom: 50%;
+    animation: liquidInvisivel 10s infinite linear;
+    border-radius: 70px;
+}
+#XPGained{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 40px;
+    font-size: 1.5em;
+    margin: 10px 0px;
+}
+#Skills{
+    width: 100%;
+    height: 100px;
+    margin: 10px 0px;
+    background-color: var(--color-accent);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.skill{
+    background-color: var(--cor-blue);
+    border: 1px solid var(--cor-black-70);
+    color: var(--cor-black-70);
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    transition: .3s linear;
+}
+.Locked{
+    background-color: var(--cor-black-50);
+    color: var(--cor-black-60);
+    border: 1px solid var(--cor-black-60);
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    transition: .3s linear;
+}
+#ButtonFlex{
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ButtonMenu{
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-neutral);
+    font-size: 1.5em;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    transition: .5s;
+    color: var(--color-neutral);
+}

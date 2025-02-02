@@ -1,0 +1,120 @@
+:root {
+    --color-dark: #2C2C2C;      /* Cor escura */
+    --color-accent: #EE7828;    /* Cor de destaque */
+    --color-neutral: #C5BAAA;   /* Cor neutra */
+    --color-secondary: #806D61; /* Cor secundária */
+
+    --ButtonSize: 68px;
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url('../Fonts/Poppins/Poppins-Regular.ttf');
+}                                                
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark);
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#GoBack{
+    background-color: var(--color-neutral);
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+    color: var(--color-accent);
+    transition: .4s linear;
+}
+#GoBack:hover{
+    background-color: var(--color-accent);
+    color: var(--color-neutral);
+}
+#ButtonsGroup{
+    width: 200px;
+    height: 200px;
+    rotate: 226deg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#ButtonsGroup > span{
+    
+    display: flex;
+}
+.Button{
+    width: var(--ButtonSize);
+    height: var(--ButtonSize);
+    background-color: var(--color-neutral);
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.Button:hover > i{
+    color: var(--color-neutral);
+    left: 0%;
+}
+.Button > i{
+    rotate: 135deg;
+    font-size: 2em;
+    color: var(--color-accent);
+    transition: .2s linear;
+    z-index: 20;
+}
+.Button:hover > .Retack_Back_Left{
+    left: 0%;
+}
+.Button:hover > .Retack_Back_Right{
+    right: 0%;
+}
+.rect{
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-accent);
+    position: absolute;
+    transition: .8s linear;
+}
+.Retack_Back_Left{
+    left: -305%;
+}
+.Retack_Back_Right{
+    right: -305%;
+}
+#difficulty{
+    position: absolute;
+    background-color: var(--color-secondary);
+    color: var(--color-neutral);
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#Range{
+    accent-color: var(--color-accent);
+}
